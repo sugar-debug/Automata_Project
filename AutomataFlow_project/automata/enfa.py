@@ -49,7 +49,7 @@ class ENFA:
             return value
 
         for token in postfix:
-            if token not in {CONCAT, "|", "*", "+", "?"}:
+            if token not in {CONCAT, "*", "+", "?"}:
                 s, f = state(), state()
                 machine.add_transition(s, EPSILON if token == EPSILON else token, f)
                 fragments.append((s, f))
@@ -60,16 +60,21 @@ class ENFA:
                 s1, f1 = fragments.pop()
                 machine.add_transition(f1, EPSILON, s2)
                 fragments.append((s1, f2))
-            elif token == "|":
+            elif token == "+":
                 if len(fragments) < 2:
-                    raise ValueError("Union operator '|' needs expressions on both sides.")
+                    raise ValueError("Union operator '+' needs expressions on both sides.")
+
                 s2, f2 = fragments.pop()
                 s1, f1 = fragments.pop()
+
                 start, final = state(), state()
+
                 machine.add_transition(start, EPSILON, s1)
                 machine.add_transition(start, EPSILON, s2)
+
                 machine.add_transition(f1, EPSILON, final)
                 machine.add_transition(f2, EPSILON, final)
+
                 fragments.append((start, final))
             elif token == "*":
                 if not fragments:

@@ -17,7 +17,7 @@ st.write("An interactive visualizer for regular languages and finite automata.")
 with st.sidebar:
     st.header("Regex input")
     regex = st.text_input("Enter regular expression", value="(a|b)*abb")
-    st.caption("Operators: | union, concatenation, * Kleene star, + one-or-more, ? optional, () grouping, ε empty string.")
+    st.caption("Operators: + union, concatenation, * Kleene star, ? optional, () grouping, ε empty string.")
     build = st.button("Generate Automata", type="primary", use_container_width=True)
 
 if "built_regex" not in st.session_state:
