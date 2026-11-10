@@ -5,7 +5,6 @@ CONCAT = "·"
 OPERATORS = {"|", CONCAT, "*", "+" , "?"}
 PRECEDENCE = {"|": 1, CONCAT: 2}
 
-
 def tokenize(regex: str):
     """Tokenize supported regex: symbols, (), |, *, +, ?, and escapes."""
     if not isinstance(regex, str) or not regex.strip():
