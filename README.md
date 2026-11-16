@@ -118,18 +118,23 @@ This expression represents all possible strings containing any combination of `a
 ```text
 AutomataFlow_project/
 │
-├── automata/
-│   ├── ...
-│
-├── tests/
-│   └── ...
-│
-├── utils/
-│   └── ...
-│
 ├── app.py
 ├── requirements.txt
-└── README.md
+├── automata/
+│   ├── __init__.py
+│   ├── regex_parser.py
+│   ├── enfa.py
+│   ├── nfa.py
+│   ├── dfa.py
+│   └── minimizer.py
+│
+├── utils/
+│   ├── __init__.py
+│   └── visualization.py
+│
+└── tests/
+    └── test_automata.py
+
 ```
 
 ---
