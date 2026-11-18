@@ -91,4 +91,4 @@ if st.session_state.get("machine_data"):
 else:
     st.info("Enter a regular expression in the sidebar and click **Generate Automata** to begin.")
     st.markdown("#### Example expressions")
-    st.code("(a|b)*abb\n(a|b)*\na(b|c)*\n0(0|1)*\na+b?")
+    st.code("(a+b)*abb\n(a+b)*\na(b+c)*\n0(0+1)*\na+b?")
