@@ -10,7 +10,7 @@ class AutomataTests(unittest.TestCase):
         return minimize_dfa(DFA.from_nfa(NFA.from_enfa(ENFA.from_regex(regex))))
 
     def test_regex_abb(self):
-        dfa = self.build("(a|b)*abb")
+        dfa = self.build("(a+b)*abb")
         self.assertTrue(dfa.run("abb")[0])
         self.assertTrue(dfa.run("aabb")[0])
         self.assertFalse(dfa.run("abab")[0])
